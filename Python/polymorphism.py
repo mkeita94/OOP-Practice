@@ -1,6 +1,6 @@
 # - Duck Typing (Like Interface in Java)
 # - Operator Overloading
-# - Method Overloading
+# - Method Overloading (Not built-in in Python)
 # - Method Overriding
 
 class Pycharm:
@@ -38,16 +38,43 @@ class Student:
         else:
             return False
 
+    def __str__(self):
+        return "{} {}".format(self.m1, self.m2)
 
+    # sum overloading(1, 2, or 3 args) -> same name but different number of args
+    def sum(self, a = None, b = None, c = None):
+        s = 0
+        if a != None and b != None and c != None:
+            s = a + b + c
+        elif a != None and b != None:
+            s = a + b
+        else:
+            s = a
+        return s
 
-s1 = Student(58,69)
-s2 = Student(60,65)
-s3 = s1 + s2
+# show() in B overrode show() in
 
-if s1 > s2:
-    print("s1 wins")
-else:
-    print("s2 wins")
+class A:
+    def show(self):
+        print("show in A")
+
+class B(A):
+    def show(self):
+        print("show in B")
+
+a1 = B()
+a1.show()
+
+# s1 = Student(58,69)
+# s2 = Student(60,65)
+# s3 = s1 + s2
+
+# if s1 > s2:
+#     print("s1 wins")
+# else:
+#     print("s2 wins")
+
+# print(s1.sum(5, 4, 9))
 #print(s3.m1)
 #ide = MyEditor()
 #ide.execute()
